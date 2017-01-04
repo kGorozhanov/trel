@@ -37,6 +37,7 @@ module.exports = {
     create: function (req, res) {
         var newUser = new User(req.body);
         newUser.provider = 'local';
+        newUser.role = 'user';
         newUser.save()
             .then(function (user) {
                 res.json(user);
