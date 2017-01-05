@@ -16,7 +16,7 @@ router.use('/users', user);
 
 router.use('/dashboards', dashboard);
 
-router.use('/columns', dashboard);
+router.use('/columns', column);
 
 
 module.exports = router;
