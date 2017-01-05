@@ -3,6 +3,7 @@ const router = new Router();
 
 const user  = require('./model/user/user-router');
 const dashboard = require('./model/dashboard/dashboard-router');
+const column = require('./model/column/column-router');
 
 
 router.route('/').get((req, res) => {
@@ -14,6 +15,8 @@ router.use('/auth', require('./auth'));
 router.use('/users', user);
 
 router.use('/dashboards', dashboard);
+
+router.use('/columns', dashboard);
 
 
 module.exports = router;
