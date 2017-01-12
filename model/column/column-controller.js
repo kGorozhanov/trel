@@ -1,6 +1,6 @@
 var Controller = require('../../lib/controller');
 var Column = require('./column-facade');
-const mongoose = require('mongoose');
+var async = require('async');
 
 class ColumnController extends Controller {
     updateAll(req, res, next) {
