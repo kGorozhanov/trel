@@ -1,11 +1,12 @@
 var Controller = require('../../lib/controller');
 var Column = require('./column-facade');
 var async = require('async');
+var mongoose = require('mongoose');
 
 class ColumnController extends Controller {
     updateAll(req, res, next) {
         async.eachSeries(req.body, (column, asyncdone) => {
-            this.model.update({_id: column._id}, {$set: {index: column.index}})
+            this.model.update({_id: mongoose.Types.ObjectId(column._id)}, {$set: {index: column.index}})
                 .then(asyncdone);
         }, (err) => {
             if (err) next(err)
