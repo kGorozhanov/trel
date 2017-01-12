@@ -5,7 +5,7 @@ var async = require('async');
 class ColumnController extends Controller {
     updateAll(req, res, next) {
         async.eachSeries(req.body, (column, asyncdone) => {
-            this.model.update({_id: column._id}, column)
+            this.model.update({_id: column._id}, {$set: {index: column.index}})
                 .then(asyncdone);
         }, (err) => {
             if (err) next(err)
