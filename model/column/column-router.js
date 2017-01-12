@@ -11,4 +11,3 @@ router.post('/updateAllIndexes', auth.isAuthenticated(), (...args) => controller
 router.post('/', auth.isAuthenticated(), (...args) => controller.create(...args));
 
 module.exports = router;
-//test branches
