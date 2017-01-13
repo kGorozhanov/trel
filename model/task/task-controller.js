@@ -6,7 +6,10 @@ var mongoose = require('mongoose');
 class TaskController extends Controller {
     updateAllIndexes(req, res, next) {
         async.eachSeries(req.body, (task, asyncdone) => {
-            this.model.update({_id: mongoose.Types.ObjectId(task._id)}, {index: task.index, column: task.column})
+            this.model.update({_id: mongoose.Types.ObjectId(task._id)}, {
+                index: task.index, 
+                column: mongoose.Types.ObjectId(task.column)
+            })
                 .then(result => asyncdone())
                 .catch(err => asyncdone(null, err));
         }, (err) => {
