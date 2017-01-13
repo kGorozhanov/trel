@@ -1,8 +1,8 @@
 const Model = require('../../lib/facade');
-const columnSchema  = require('./column-schema');
+const taskSchema  = require('./task-schema');
 
 
-class ColumnModel extends Model {
+class TaskModel extends Model {
     find(query) {
     return this.Schema
     .find(query)
@@ -11,4 +11,4 @@ class ColumnModel extends Model {
   }
 }
 
-module.exports = new ColumnModel(columnSchema);
+module.exports = new TaskModel(taskSchema);
